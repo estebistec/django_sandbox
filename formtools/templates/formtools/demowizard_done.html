@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ block.super }} - {% trans 'Form Wizard Completed' %}{% endblock %}
+
+{% block header %}
+{{ block.super }}
+<h2>{% trans 'Form Wizard Completed' %}</h2>
+{% endblock %}
+
+{% block main %}
+<dl>
+{% for key, value in formdata.items %}
+<dt>{{ key|escape }}</dt>
+<dd>{{ value|escape }}</dd>
+{% empty %}
+<dt>{% trans 'No data' %}</dt>
+{% endfor %}
+</dl>
+{% endblock %}

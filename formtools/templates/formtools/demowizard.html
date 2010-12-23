@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ block.super }} - {% trans 'Form Wizard' %}{% endblock %}
+
+{% block header %}
+{{ block.super }}
+<h2>{% trans 'Form Wizard' %}</h2>
+{% endblock %}
+
+{% block main %}
+<p>{% blocktrans %}Demo of the contrib form-wizard.{% endblocktrans %}</p>
+
+<p>TODO</p>
+<ul>
+<li>Navigating backwards</li>
+<li>Preview Form to get summary page</li>
+</ul>
+
+<h2>{% blocktrans %}Step {{ step }} of {{ step_count }}{% endblocktrans %}</h2>
+<form action="{% url form-wizard %}" method="post" enctype="application/x-www-form-urlencoded">
+{% csrf_token %}
+<input type="hidden" name="{{ step_field }}" value="{{ step0 }}" />
+{{ previous_fields|safe }}
+{{ form.as_p }}
+<p><input type="submit" name="submit" value="{% trans 'Submit' %}" /></p>
+</form>
+{% endblock %}

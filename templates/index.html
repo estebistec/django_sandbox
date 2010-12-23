@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{{ block.super }} - {% trans 'Contents' %}{% endblock %}
+
+{% block header %}
+{{ block.super }}
+<h2>{% trans 'Contents' %}</h2>
+{% endblock %}
+
+{% block main %}
+<p>{% blocktrans %}This app contains various demos and experiments used to
+test various django core, contrib, and commonly-used 3rd-party features.{% endblocktrans %}</p>
+
+<ul>
+    <li><a href="{% url formtools-index %}">{% trans 'Form Tools' %}</a></li>
+</ul>
+{% endblock %}

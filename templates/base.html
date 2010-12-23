@@ -1,0 +1,17 @@
+{% load i18n %}
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %}{% trans 'Django Sandbox' %}{% endblock %}</title>
+    </head>
+    <body>
+        <nav>{% block nav %}{% endblock %}</nav>
+        <header>
+            {% block header %}
+            <h1>{% trans 'Django Sandbox' %}</h1>
+            {% endblock %}
+        </header>
+        <div id="page-contents">{% block main %}{% endblock %}</div>
+        <footer>{% block footer %}{% endblock %}</footer>
+    </body>
+</html>
